@@ -15,6 +15,10 @@ class BooksLists extends Component{
         books:[]
     }
 
+    liftValue(value,book) {
+        this.props.liftValue(value,book);
+    }
+
 
     render() {
 
@@ -28,14 +32,14 @@ class BooksLists extends Component{
                 </div>
                 <div className="list-books-content">
                     <div>
-                       <BookShelf shelf="Currently Reading" books={books.filter((b) => b.shelf === 'currentlyReading')}/>
-                       <BookShelf shelf="Want To Read" books={books.filter((b) => b.shelf === 'wantToRead')}/>
-                       <BookShelf shelf="Currently Reading" books={books.filter((b) => b.shelf === 'read')}/>
+                       <BookShelf liftValue={this.liftValue.bind(this)} shelf="Currently Reading" books={books.filter((b) => b.shelf === 'currentlyReading')}/>
+                       <BookShelf liftValue={this.liftValue.bind(this)} shelf="Want To Read" books={books.filter((b) => b.shelf === 'wantToRead')}/>
+                       <BookShelf liftValue={this.liftValue.bind(this)} shelf="Read" books={books.filter((b) => b.shelf === 'read')}/>
                     </div>
                 </div>
                 <div className="open-search">
 
-                    <Link to="/">Add a book</Link>
+                    <Link to="/search">Add a book</Link>
                 </div>
             </div>
 

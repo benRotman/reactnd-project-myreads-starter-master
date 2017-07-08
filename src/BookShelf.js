@@ -10,11 +10,10 @@ class BookShelf extends Component{
     }
 
 
-    componentWillReceiveProps(nextProps) {
 
-        this.setState({
-            books: nextProps.books
-        });
+
+    liftValue(value, book) {
+        this.props.liftValue(value, book);
     }
 
     render() {
@@ -27,8 +26,7 @@ class BookShelf extends Component{
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {books.map((book) => (
-                            <Book book={book} key={book.id}/>
-
+                            <Book book={book} key={book.id} liftValue={this.liftValue.bind(this)}/>
                         ))}
                     </ol>
                 </div>

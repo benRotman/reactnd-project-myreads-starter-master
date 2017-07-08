@@ -6,16 +6,22 @@ import { Link } from 'react-router-dom'
 
 class BookShelfChanger extends Component{
 
+
+
+    handleUpdate = (e) => {
+        this.props.liftValue(e.target.value);
+    }
+
     render() {
 
+        const { book } = this.props;
         return (
             <div className="book-shelf-changer">
-                <select>
+                <select onChange = {this.handleUpdate.bind(this)}>
                     <option value="none" disabled>Move to...</option>
-                    <option value="currentlyReading">Currently Reading</option>
-                    <option value="wantToRead">Want to Read</option>
-                    <option value="read">Read</option>
-                    <option value="none">None</option>
+                    <option selected={book.shelf === 'currentlyReading'}  value="currentlyReading">Currently Reading</option>
+                    <option selected={book.shelf === 'wantToRead'}  value="wantToRead">Want to Read</option>
+                    <option selected={book.shelf === 'read'} value="read">Read</option>
                 </select>
             </div>
         )
