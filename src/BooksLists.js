@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
-import BookShelf from './BookShelf';
+import BookShelf from './BookShelf'
 import { Link } from 'react-router-dom'
 
 class BooksLists extends Component{
@@ -9,10 +8,6 @@ class BooksLists extends Component{
 
     static propTypes = {
         books:PropTypes.array.isRequired,
-    };
-
-    state= {
-        books:[]
     }
 
     liftValue(value,book) {

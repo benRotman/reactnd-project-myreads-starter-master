@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Book from './Book';
-import escapeRegExp from 'escape-string-regexp'
+import Book from './Book'
 import { Link } from 'react-router-dom'
 
 class BookShelf extends Component{
-    state = {
-        books: []
-    }
-
-
-
 
     liftValue(value, book) {
         this.props.liftValue(value, book);
